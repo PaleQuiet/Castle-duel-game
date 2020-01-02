@@ -13,7 +13,7 @@ var state = {
   turn: 1, // 回合
   players: [
     {
-      name: '富土康的张全蛋',
+      name: '张全蛋',
       food: 10,
       health: 10,
       // 是否跳过下个回合
@@ -25,7 +25,7 @@ var state = {
       dead: false
     },
     {
-      name: '富土康的李铁柱',
+      name: '李铁柱',
       food: 10,
       health: 10,
       // 是否跳过下个回合
@@ -41,6 +41,9 @@ var state = {
   testHand: [],
   // 用户界面
   activeOverlay: null,
+  drawPile: pile,
+  discardPile: {},
+  canPlay: false,
   get currentPlayer() {
     return state.players[state.currentPlayerIndex]
   },
@@ -48,6 +51,9 @@ var state = {
     return state.currentPlayerIndex === 0 ? 1 : 0
   },
   get currentOpponent() {
-    return state.palyers[state.currentOpponentId]
+    return state.players[state.currentOpponentId]
+  },
+  get currentHand() {
+    return state.currentPlayer.hand
   }
 }
